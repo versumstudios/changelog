@@ -13,39 +13,65 @@
         margin: 0;
         padding: 0;
       }
-
       p {
         margin: 0;
         font-size: 16px;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
       }
-
       a {
         color: black;
       }
       a:hover {
         text-decoration: none;
       }
+      ul {
+        padding: 0 0 0 10px;
+      }
+      li {
+        list-style-type: none;
+      }
+      li:before {
+        content: "";
+        float: left;
+        display: list-item;
+        list-style-type: disc;
+        list-style-position: inside;
+        width: 10px;
+        margin-left: -10px;
+      }
     </style>
   </head>
   <body>
+    <script>
+      var theme = new URLSearchParams(window.location.search).get("theme")
+
+      var styleSheet = document.createElement("style")
+      styleSheet.type = "text/css"
+      styleSheet.innerText = `
+        body, a {
+          color: ${theme === "dark" ? "white" : "black"}
+        }
+        `
+      document.head.appendChild(styleSheet)
+    </script>
     <p>
       <strong>1.0.0 - February 1st, 2022</strong>
     </p>
     <p>
-      Its been little over 2 weeks since launch and as we start to get more
-      content we are starting to rollout some of the features we announced.
-      Those features are about curation and organic discovery.
+      It&apos;s been little under three weeks since we launched 🎉🎉🎉 and as we
+      start to get more content we are rolling out some more features.
+    </p>
+    <p>
+      With this new update we're enabling organic discovery and curation. You
+      can read more about
+      <a href="https://docs.versum.xyz" target="_blank">here</a>.
     </p>
     <ul>
-      <li>
-        <a href="https://docs.versum.xyz" target="_blank">Personalised feed </a
-        >&nbsp;🎉
-      </li>
-      <li>
-        <a href="https://docs.versum.xyz" target="_blank">Boards</a>
-      </li>
-      <li>Lazy loading</li>
+      <li>Personalised feed</li>
+      <li>Boards</li>
+      <li>image/video lazy loading</li>
+      <li>Time-based swaps</li>
+      <li>bug fixes</li>
     </ul>
   </body>
 </html>
