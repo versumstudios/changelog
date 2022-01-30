@@ -221,9 +221,25 @@
       }
       `
 
+      let styles = ``
+
+      if (theme === "dark") {
+        styles = DarkTheme
+      } else if (theme === "light") {
+        styles = LightTheme
+      } else {
+        styles = `
+          @media (prefers-color-scheme: dark) {
+            ${DarkTheme}
+          }
+          @media (prefers-color-scheme: light) {
+            ${LightTheme}
+          }`
+      }
+
       var styleSheet = document.createElement("style")
       styleSheet.type = "text/css"
-      styleSheet.innerText = theme === "dark" ? DarkTheme : LightTheme
+      styleSheet.innerText = styles
       document.head.appendChild(styleSheet)
     </script>
     <h1>1.0.0 - February 1st, 2022</h1>
