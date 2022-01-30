@@ -8,36 +8,177 @@
       rel="stylesheet"
     />
     <style>
+      /*
+        http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+    <style>
       body {
         font-family: "DM Sans", sans-serif;
         margin: 0;
         padding: 0;
         font-size: 16px;
+        background-color: var(--primaryBackground);
       }
+
+      * {
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--primaryHighlight);
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        color: var(--primaryFill);
+      }
+
       p {
-        margin: 0;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        color: var(--secondaryFill);
       }
+
       a {
-        color: black;
+        color: inherit;
+        text-decoration: underline;
       }
       a:hover {
         text-decoration: none;
-      }
-      ul {
-        padding: 0 0 0 10px;
-      }
-      li {
-        list-style-type: none;
-      }
-      li:before {
-        content: "";
-        float: left;
-        display: list-item;
-        list-style-type: disc;
-        list-style-position: inside;
-        width: 10px;
-        margin-left: -10px;
       }
     </style>
   </head>
@@ -45,32 +186,83 @@
     <script>
       var theme = new URLSearchParams(window.location.search).get("theme")
 
+      var DarkTheme = `
+      body {
+        --primaryBackground: #101010;
+        --secondaryBackground: #1c1d1f;
+
+        --primaryFill: #ffffff;
+        --secondaryFill: #8c8c8d;
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(255, 255, 255, 0.1);
+        --secondaryBorder: rgba(255, 255, 255, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
+      var LightTheme = `
+      body {
+        --primaryBackground: #ffffff;
+        --secondaryBackground: #f7f7f7;
+
+        --primaryFill: #000000;
+        --secondaryFill: rgba(0, 0, 0, 0.6);
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(0, 0, 0, 0.1);
+        --secondaryBorder: rgba(0, 0, 0, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
       var styleSheet = document.createElement("style")
       styleSheet.type = "text/css"
-      styleSheet.innerText = `
-        body, a {
-          color: ${theme === "dark" ? "#8c8c8d" : "black"}
-        }
-        `
+      styleSheet.innerText = theme === "dark" ? DarkTheme : LightTheme
       document.head.appendChild(styleSheet)
     </script>
-    <p>
-      <strong>1.0.0 - February 1st, 2022</strong>
-    </p>
+    <h1>1.0.0 - February 1st, 2022</h1>
     <p>
       It&apos;s been little under three weeks since we launched 🎉🎉🎉 and as we
       start to get more content we are rolling out some more features.
     </p>
+
     <p>
       With this new update we're enabling organic discovery and curation. You
       can read more about
       <a href="https://docs.versum.xyz" target="_blank">here</a>.
     </p>
+
+    <h2>Personalised feed</h2>
+    <p>
+      Like a token or follow an artist or a board to personalize your feed.
+      Unlike other marketplaces where leaderboards and platform-curated content
+      dominate homepages, you decide the content you want to see.
+    </p>
+
+    <h2>Boards</h2>
+    <p>
+      Boards are a list or gallery of tokens that contribute to your
+      personalized feed. Follow boards curated by other users or create your own
+      to organize tokens you&apos;ve discovered.
+    </p>
+
+    <h2>Time-limited swaps</h2>
+    <p>
+      We&apos;re introducing a new type of swap: time-limited swaps. These will
+      burn any unsold tokens when the time is reached 🔥🔥🔥.
+    </p>
+    <p>
+      Cancelling the swap also triggers the burn so make sure you&apos;re happy
+      with the pricem before you swap.
+    </p>
+
     <ul>
-      <li>Personalised feed</li>
-      <li>Boards</li>
       <li>image/video lazy loading</li>
-      <li>Time-based swaps</li>
       <li>bug fixes</li>
     </ul>
   </body>
