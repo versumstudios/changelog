@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /*
+        http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        background-color: var(--primaryBackground);
+      }
+
+      * {
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--primaryHighlight);
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        color: var(--primaryFill);
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--secondaryFill);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var theme = new URLSearchParams(window.location.search).get("theme")
+
+      var DarkTheme = `
+      body {
+        --primaryBackground: #101010;
+        --secondaryBackground: #1c1d1f;
+
+        --primaryFill: #ffffff;
+        --secondaryFill: #8c8c8d;
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(255, 255, 255, 0.1);
+        --secondaryBorder: rgba(255, 255, 255, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
+      var LightTheme = `
+      body {
+        --primaryBackground: #ffffff;
+        --secondaryBackground: #f7f7f7;
+
+        --primaryFill: #000000;
+        --secondaryFill: rgba(0, 0, 0, 0.6);
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(0, 0, 0, 0.1);
+        --secondaryBorder: rgba(0, 0, 0, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
+      let styles = ``
+
+      if (theme === "dark") {
+        styles = DarkTheme
+      } else if (theme === "light") {
+        styles = LightTheme
+      } else {
+        styles = `
+          @media (prefers-color-scheme: dark) {
+            ${DarkTheme}
+          }
+          @media (prefers-color-scheme: light) {
+            ${LightTheme}
+          }`
+      }
+
+      var styleSheet = document.createElement("style")
+      styleSheet.type = "text/css"
+      styleSheet.innerText = styles
+      document.head.appendChild(styleSheet)
+    </script>
+    <h1>1.1.0 - May 20th, 2022</h1>
+    <p>
+      Today, we're thrilled to announce that the Ubisoft Strategic Innovation
+      Lab has selected us for their seventh season of the Ubisoft Entrepreneurs
+      Lab.
+    </p>
+    <p>
+      We will be working closely in partnership with them on redefining the art
+      experience within the digital arts space.
+    </p>
+
+    <h2>New Token Market view</h2>
+    <p>
+      We're introducing a new market view to the tokens on the feed, boards,
+      collections and user profiles.
+    </p>
+
+    <p>You are able to configure how Versum looks, and make it your own.</p>
+
+    <h2>Keyboard shortcuts</h2>
+    <p>
+      If you want to change the appearance settings in real time without having
+      to jump back and forth in the settings, you can use the following keyboard
+      shortcuts:
+    </p>
+
+    <p>
+      "i" toggles the info on/off<br />
+      "m" toggles the market on/off<br />
+      "l" toggles the labels on/off<br />
+    </p>
+  </body>
+</html>
