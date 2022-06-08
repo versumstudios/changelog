@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /*
+        http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+    </style>
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        background-color: var(--primaryBackground);
+      }
+
+      * {
+        box-sizing: border-box;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 24px;
+        color: var(--primaryHighlight);
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        color: var(--primaryFill);
+      }
+
+      p {
+        margin-bottom: 16px;
+        color: var(--secondaryFill);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var theme = new URLSearchParams(window.location.search).get("theme")
+
+      var DarkTheme = `
+      body {
+        --primaryBackground: #101010;
+        --secondaryBackground: #1c1d1f;
+
+        --primaryFill: #ffffff;
+        --secondaryFill: #8c8c8d;
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(255, 255, 255, 0.1);
+        --secondaryBorder: rgba(255, 255, 255, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
+      var LightTheme = `
+      body {
+        --primaryBackground: #ffffff;
+        --secondaryBackground: #f7f7f7;
+
+        --primaryFill: #000000;
+        --secondaryFill: rgba(0, 0, 0, 0.6);
+
+        --primaryHighlight: #0971f1;
+        --secondaryHighlight: #227ff2;
+        --primaryBorder: rgba(0, 0, 0, 0.1);
+        --secondaryBorder: rgba(0, 0, 0, 0.2);
+        --primaryError: #f9153e;
+        --secondaryError: #190206;
+      }
+      `
+
+      let styles = ``
+
+      if (theme === "dark") {
+        styles = DarkTheme
+      } else if (theme === "light") {
+        styles = LightTheme
+      } else {
+        styles = `
+          @media (prefers-color-scheme: dark) {
+            ${DarkTheme}
+          }
+          @media (prefers-color-scheme: light) {
+            ${LightTheme}
+          }`
+      }
+
+      var styleSheet = document.createElement("style")
+      styleSheet.type = "text/css"
+      styleSheet.innerText = styles
+      document.head.appendChild(styleSheet)
+    </script>
+    <h1>1.1.2 - June 8thth, 2022</h1>
+    <p>Update time 🎉</p>
+
+    <h2>RPC Node - Introduction</h2>
+    <p>
+      Versum allows you to choose which RPC node you want to use to interact
+      with the platform, your wallet and the tezos blockchain. This is a very
+      useful feature, particularly during periods where the public nodes are
+      extremely busy.
+    </p>
+
+    <p>
+      When you first login to versum an RPC Node will automatically be assigned
+      to you, so as to spread the users evenly through all the available public
+      nodes and avoid adding too much load to any one node.
+    </p>
+
+    <p>
+      Over the last couple of weeks we have received reports of users having
+      problems interacting with their wallets. After some investigation we found
+      the cause of the issue: teznode.letzbake.com has been deprecated, and thus
+      any user on that node would experience issues.
+    </p>
+
+    <p>
+      The fix was quite easy, you simply need to go to your versum settings
+      [Settings/Global] and change to another node.
+    </p>
+
+    <p>
+      However in an effort to simplify things, and to give more options to
+      moderate and advanced users, we have refactored our code and improved the
+      user experience, by adding automatic node reassignment, and giving users
+      the ability to use a private node.
+    </p>
+
+    <h2>RPC Node (Auto)</h2>
+    <p>
+      From this update onwards every user will have this option selected by
+      default. If your node is instable or unreachable versum will automatically
+      change nodes for you behind the scenes.
+    </p>
+
+    <h2>RPC Node (Manual)</h2>
+    <p>
+      Manual mode allows you to specify one of the publicly available RPC nodes.
+    </p>
+
+    <h2>RPC Node (Custom)</h2>
+    <p>
+      If you are an advanced user running your own node, you can specify the url
+      here, and Versum will use this node.
+    </p>
+  </body>
+</html>
