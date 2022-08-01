@@ -189,7 +189,9 @@
         border-radius: 8px;
         background-color: var(--secondaryBackground);
         color: var(--secondaryFill);
+        font-size: 14px;
         font-family: monospace;
+        overflow-wrap: break-word;
       }
     </style>
   </head>
@@ -337,16 +339,34 @@
       Recently we fixed an issue affecting all tokens with 0% royalties,
       stopping users from being able to collect on secondary market if the price
       was above 0ꜩ. This bug didn't get picked up by our unit tests due to an
-      underlying issue in smartpy which failed to highlight 0ꜩ transfers (which
-      are not supported on Tezos)
+      underlying
       <a href="https://gitlab.com/SmartPy/smartpy/-/issues/35" target="_blank"
-        >https://gitlab.com/SmartPy/smartpy/-/issues/35</a
+        >issue</a
       >
+      in smartpy which failed to highlight 0ꜩ transfers (which are not supported
+      on Tezos)
     </p>
     <p>
       Since our smart contracts are upgradable we were able to patch this
       without having to redeploy new contracts, and you should now be able to
       purchase any token with 0% royalties.
+    </p>
+    <p>
+      Full list of affected tokens:
+
+      <code>
+        3671, 15059, 3282, 584, 1153, 6590, 5885, 8607, 9130, 11459, 12988,
+        13850, 15492, 15481, 15489, 15490, 15513, 15514, 15646, 16284, 19476,
+        19496, 20302, 1614, 855, 2265, 3756, 11509, 6824, 6825, 5559, 7649,
+        10384, 9989, 10006, 8806, 10745, 10048, 10116, 10138, 10153, 10161,
+        9762, 10349, 10354, 11668, 10429, 10454, 10462, 11128, 11150, 13924,
+        13928, 11816, 13970, 11312, 12617, 12063, 15186, 13333, 12832, 14088,
+        21629, 12879, 14059, 16157, 12973, 14876, 14874, 15293, 14895, 16454,
+        14881, 14964, 14969, 14461, 14970, 15048, 14458, 19583, 15790, 15068,
+        15794, 15189, 15366, 15372, 15368, 16677, 16678, 16682, 16105, 16108,
+        16112, 16114, 16117, 16140, 16251, 17027, 20095, 21605, 21632, 27415,
+        24061, 25006, 24935, 15525, 15279, 27116, 27239</code
+      >
     </p>
   </body>
 </html>
